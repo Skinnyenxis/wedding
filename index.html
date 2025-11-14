@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Азиз и Жасмина — Приглашение на свадьбу</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#e74c3c;
+      --primary:#2c3e50;
+      --light:#ecf0f1;
+      --text:#333;
+      --uzbek:#d4a574;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+
+    body{
+      font-family: "Inter", sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:linear-gradient(135deg, #f5f5f5, #efe7e0);
+      padding:15px;
+    }
+
+    .wrapper{ max-width:600px; margin:0 auto; }
+
+    .ornament{
+      text-align:center;
+      font-size:24px;
+      margin:15px 0;
+      color:var(--uzbek);
+      letter-spacing:8px;
+    }
+
+    header{
+      background:linear-gradient(135deg, var(--primary), #34495e);
+      color:white;
+      padding:30px 20px;
+      border-radius:12px;
+      text-align:center;
+      margin-bottom:20px;
+      border:3px solid var(--uzbek);
+      position:relative;
+      overflow:hidden;
+    }
+
+    header::before{
+      content:"❖ ❖ ❖";
+      position:absolute;
+      top:5px;
+      left:0;
+      right:0;
+      font-size:14px;
+      color:rgba(212,165,116,0.3);
+    }
+
+    header h1{
+      font-family:"Playfair Display", serif;
+      font-size:36px;
+      margin-bottom:10px;
+    }
+
+    header .accent{ color:var(--accent); }
+
+    .photo-placeholder{
+      background:#f0f0f0;
+      border:3px dashed var(--uzbek);
+      border-radius:10px;
+      aspect-ratio:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:15px 0;
+      color:var(--uzbek);
+      font-size:14px;
+      text-align:center;
+      padding:20px;
+    }
+
+    .details{
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      margin-bottom:15px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      border-left:5px solid var(--uzbek);
+    }
+
+    .detail-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid #eee;
+    }
+
+    .detail-item:last-child{ border-bottom:none; }
+
+    .detail-item span{ font-size:24px; }
+    .detail-item strong{ color:var(--primary); font-weight:600; }
+
+    .card{
+      background:white;
+      padding:18px;
+      border-radius:10px;
+      margin-bottom:15px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      border-top:4px solid var(--uzbek);
+    }
+
+    .card h2{
+      color:var(--primary);
+      font-size:20px;
+      margin-bottom:12px;
+      border-bottom:2px solid var(--accent);
+      padding-bottom:8px;
+    }
+
+    .card p{ color:#555; margin-bottom:10px; line-height:1.7; }
+
+    .timeline{
+      display:grid;
+      gap:10px;
+    }
+
+    .timeline-item{
+      background:#f9f9f9;
+      padding:12px;
+      border-left:4px solid var(--uzbek);
+      border-radius:4px;
+    }
+
+    .timeline-item strong{ color:var(--primary); }
+
+    form{
+      display:grid;
+      gap:12px;
+    }
+
+    input, select, textarea{
+      padding:10px;
+      border:1px solid var(--uzbek);
+      border-radius:6px;
+      font-size:14px;
+      width:100%;
+      font-family:inherit;
+    }
+
+    textarea{ min-height:80px; resize:none; }
+
+    button{
+      padding:12px;
+      background:var(--accent);
+      color:white;
+      border:none;
+      border-radius:6px;
+      font-weight:600;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{ background:#c0392b; }
+
+    .success-message{
+      display:none;
+      background:#27ae60;
+      color:white;
+      padding:12px;
+      border-radius:6px;
+      text-align:center;
+      font-weight:600;
+      margin-top:10px;
+    }
+
+    .info-box{
+      background:#fff3cd;
+      border-left:4px solid var(--uzbek);
+      padding:12px;
+      border-radius:4px;
+      margin:15px 0;
+      font-size:14px;
+    }
+
+    footer{
+      text-align:center;
+      margin-top:30px;
+      color:#777;
+      font-size:12px;
+    }
+
+    @media (max-width:480px){
+      header h1{ font-size:28px; }
+      .card h2{ font-size:18px; }
+      header{ padding:20px 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="ornament">❖ ❖ ❖</div>
+
+    <header>
+      <h1>Азиз <span class="accent">&</span> Жасмина</h1>
+      <p style="font-size:16px; opacity:0.95">Приглашаем вас<br>на нашу свадьбу</p>
+    </header>
+<img src="images/wedding-photo2.jpg" alt="Молодожёны" style="width:100%; border-radius:10px; margin:15px 0;">
+
+    <div class="ornament">✤ ✤ ✤</div>
+
+    <div class="details">
+      <div class="detail-item">
+        <span>📅</span>
+        <div><strong>18 сентября, 2025</strong></div>
+      </div>
+      <div class="detail-item">
+        <span>🕔</span>
+        <div><strong>18:00</strong></div>
+      </div>
+      <div class="detail-item">
+        <span>📍</span>
+        <div><strong>г. Шымкент</strong><br><small>Ресторан "Евро Азия"</small></div>
+      </div>
+      <div class="detail-item">
+        <span>📞</span>
+        <div><strong>+7 701 000 0000</strong> (Азиз)<br><strong>+7 701 111 1111</strong> (Жасмина)</div>
+      </div>
+    </div>
+
+    <img src="images/wedding-photo.jpg" alt="Молодожёны" style="width:100%; border-radius:20px; margin:1px 0;">
+
+    <div class="card">
+      <h2>❖ О нас</h2>
+      <p>Дорогие гости! Мы с радостью приглашаем вас разделить с нами самый важный день в нашей жизни. Ваше присутствие для нас бесценно и будет означать очень много.</p>
+    </div>
+
+    <div class="card">
+      <h2>❖ Программа дня</h2>
+      <div class="timeline">
+        <div class="timeline-item"><strong>17:30</strong> — Приём гостей</div>
+        <div class="timeline-item"><strong>18:00</strong> — Свадебная церемония</div>
+        <div class="timeline-item"><strong>19:00</strong> — Ужин и музыка</div>
+        <div class="timeline-item"><strong>23:00</strong> — Сладкий стол</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>❖ Подтверждение прихода</h2>
+      <p style="margin-bottom:15px; font-size:14px; color:#666;">Пожалуйста, заполните форму для регистрации.</p>
+      
+      <form id="rsvpForm">
+        <input type="text" id="name" placeholder="Ваше имя" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <select id="attendance" required>
+          <option value="">Выберите ответ</option>
+          <option value="yes">Буду на свадьбе ✓</option>
+          <option value="no">Не смогу приехать ✗</option>
+          <option value="maybe">Ещё не определился ?</option>
+        </select>
+        <input type="text" id="guests" placeholder="Сколько человек?" inputmode="numeric" />
+        <textarea id="note" placeholder="Особые пожелания или аллергия (необязательно)"></textarea>
+        <button type="submit">Отправить</button>
+        <div class="success-message" id="successMsg">✅ Спасибо! Ваш ответ принят.</div>
+      </form>
+    </div>
+
+    <div class="info-box">
+      <strong>ℹ️ Важно:</strong> Просим сообщить о своём прибытии как можно раньше. Адрес находится в центре города, легко доступен транспортом.
+    </div>
+
+    <div class="ornament">❖ ❖ ❖</div>
+
+    <footer>
+      © 2025 Азиз & Жасмина<br>С нетерпением ждём встречи с вами!
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('rsvpForm');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        attendance: document.getElementById('attendance').value,
+        guests: document.getElementById('guests').value.trim(),
+        note: document.getElementById('note').value.trim(),
+      };
+
+      if(!data.name || !data.email || !data.attendance){
+        alert('Пожалуйста, заполните обязательные поля.');
+        return;
+      }
+
+      success.style.display = 'block';
+      form.style.display = 'none';
+
+      const stored = JSON.parse(localStorage.getItem('rsvps') || '[]');
+      stored.push(data);
+      localStorage.setItem('rsvps', JSON.stringify(stored));
+    });
+  </script>
+</body>
+</html>
