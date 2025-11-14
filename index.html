@@ -263,7 +263,7 @@
         <input type="text" id="guests" placeholder="Сколько человек?" inputmode="numeric" />
         <textarea id="note" placeholder="Особые пожелания или аллергия (необязательно)"></textarea>
         <button type="submit">Отправить</button>
-        <div class="success-message" id="successMsg">✅ Спасибо! Ваш ответ принят.</div>
+        <div class="success-message" id="successMsg">✅ Откроется WhatsApp для отправки вашего сообщения.</div>
       </form>
     </div>
 
@@ -284,25 +284,31 @@
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      const data = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        attendance: document.getElementById('attendance').value,
-        guests: document.getElementById('guests').value.trim(),
-        note: document.getElementById('note').value.trim(),
-      };
 
-      if(!data.name || !data.email || !data.attendance){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const attendance = document.getElementById('attendance').value;
+      const guests = document.getElementById('guests').value.trim();
+      const note = document.getElementById('note').value.trim();
+
+      if(!name || !email || !attendance){
         alert('Пожалуйста, заполните обязательные поля.');
         return;
       }
 
+      // Ваш номер WhatsApp в международном формате без +
+      const phone = "77066399442"; // номер изменён
+      let text = `Приглашение на свадьбу:\nИмя: ${name}\nEmail: ${email}\nОтвет: ${attendance}\n`;
+      if(guests) text += `Гостей: ${guests}\n`;
+      if(note) text += `Пожелания: ${note}`;
+
+      // Формируем ссылку для WhatsApp
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+      // Показываем сообщение и открываем WhatsApp в новой вкладке
       success.style.display = 'block';
       form.style.display = 'none';
-
-      const stored = JSON.parse(localStorage.getItem('rsvps') || '[]');
-      stored.push(data);
-      localStorage.setItem('rsvps', JSON.stringify(stored));
+      window.open(url, '_blank');
     });
   </script>
 </body>
