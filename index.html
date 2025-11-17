@@ -4,314 +4,324 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Азиз и Жасмина — Приглашение на свадьбу</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Шрифты в стиле Tilda -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 
   <style>
-    :root{
-      --accent:#e74c3c;
-      --primary:#2c3e50;
-      --light:#ecf0f1;
-      --text:#333;
-      --uzbek:#d4a574;
+    /* ======== Цвета (пастельные) ======== */
+    :root {
+      --bg:#FAFAF7;
+      --card:#FFFFFF;
+      --text:#444;
+      --title:#2C3E50;
+      --accent:#d4a574;
+      --accent2:#e7c9a7;
+      --border:#e6dfd7;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-
+    *{margin:0;padding:0;box-sizing:border-box;}
     body{
-      font-family: "Inter", sans-serif;
+      background:var(--bg);
+      font-family:"Inter", sans-serif;
       color:var(--text);
-      line-height:1.6;
-      background:linear-gradient(135deg, #f5f5f5, #efe7e0);
-      padding:15px;
+      padding:20px;
+      line-height:1.7;
     }
 
-    .wrapper{ max-width:600px; margin:0 auto; }
+    .wrapper{
+      max-width:650px;
+      margin:0 auto;
+    }
 
+    /* ======== Анимации в стиле Tilda ======== */
+    [data-anim]{
+      opacity:0;
+      transform:translateY(20px);
+      transition:all .8s ease;
+    }
+    [data-anim].show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* ======== Декоративная линия ======== */
     .ornament{
       text-align:center;
-      font-size:24px;
-      margin:15px 0;
-      color:var(--uzbek);
-      letter-spacing:8px;
+      letter-spacing:10px;
+      color:var(--accent);
+      font-size:22px;
+      margin:20px 0;
+      opacity:.8;
     }
 
+    /* ======== Заголовок ======== */
     header{
-      background:linear-gradient(135deg, var(--primary), #34495e);
-      color:white;
-      padding:30px 20px;
-      border-radius:12px;
+      background:var(--card);
+      padding:35px 20px;
+      border-radius:18px;
       text-align:center;
-      margin-bottom:20px;
-      border:3px solid var(--uzbek);
-      position:relative;
-      overflow:hidden;
-    }
-
-    header::before{
-      content:"❖ ❖ ❖";
-      position:absolute;
-      top:5px;
-      left:0;
-      right:0;
-      font-size:14px;
-      color:rgba(212,165,116,0.3);
+      box-shadow:0 8px 25px rgba(0,0,0,0.05);
+      border:1px solid var(--border);
     }
 
     header h1{
       font-family:"Playfair Display", serif;
-      font-size:36px;
-      margin-bottom:10px;
-    }
-
-    header .accent{ color:var(--accent); }
-
-    .photo-placeholder{
-      background:#f0f0f0;
-      border:3px dashed var(--uzbek);
-      border-radius:10px;
-      aspect-ratio:1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin:15px 0;
-      color:var(--uzbek);
-      font-size:14px;
-      text-align:center;
-      padding:20px;
-    }
-
-    .details{
-      background:white;
-      padding:15px;
-      border-radius:10px;
-      margin-bottom:15px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      border-left:5px solid var(--uzbek);
-    }
-
-    .detail-item{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 0;
-      border-bottom:1px solid #eee;
-    }
-
-    .detail-item:last-child{ border-bottom:none; }
-
-    .detail-item span{ font-size:24px; }
-    .detail-item strong{ color:var(--primary); font-weight:600; }
-
-    .card{
-      background:white;
-      padding:18px;
-      border-radius:10px;
-      margin-bottom:15px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      border-top:4px solid var(--uzbek);
-    }
-
-    .card h2{
-      color:var(--primary);
-      font-size:20px;
-      margin-bottom:12px;
-      border-bottom:2px solid var(--accent);
-      padding-bottom:8px;
-    }
-
-    .card p{ color:#555; margin-bottom:10px; line-height:1.7; }
-
-    .timeline{
-      display:grid;
-      gap:10px;
-    }
-
-    .timeline-item{
-      background:#f9f9f9;
-      padding:12px;
-      border-left:4px solid var(--uzbek);
-      border-radius:4px;
-    }
-
-    .timeline-item strong{ color:var(--primary); }
-
-    form{
-      display:grid;
-      gap:12px;
-    }
-
-    input, select, textarea{
-      padding:10px;
-      border:1px solid var(--uzbek);
-      border-radius:6px;
-      font-size:14px;
-      width:100%;
-      font-family:inherit;
-    }
-
-    textarea{ min-height:80px; resize:none; }
-
-    button{
-      padding:12px;
-      background:var(--accent);
-      color:white;
-      border:none;
-      border-radius:6px;
+      font-size:40px;
+      color:var(--title);
       font-weight:600;
-      cursor:pointer;
+      margin-bottom:8px;
+    }
+
+    header span.accent{
+      color:var(--accent);
+    }
+
+    header p{
+      color:#666;
       font-size:16px;
     }
 
-    button:hover{ background:#c0392b; }
-
-    .success-message{
-      display:none;
-      background:#27ae60;
-      color:white;
-      padding:12px;
-      border-radius:6px;
-      text-align:center;
-      font-weight:600;
-      margin-top:10px;
+    /* ======== Фото ======== */
+    .photo{
+      width:100%;
+      border-radius:20px;
+      margin:25px 0;
+      box-shadow:0 8px 25px rgba(0,0,0,0.06);
     }
 
-    .info-box{
-      background:#fff3cd;
-      border-left:4px solid var(--uzbek);
+    /* ======== Карточки ======== */
+    .card{
+      background:var(--card);
+      padding:25px;
+      border-radius:16px;
+      box-shadow:0 7px 20px rgba(0,0,0,0.06);
+      border:1px solid var(--border);
+      margin-bottom:25px;
+    }
+
+    .card h2{
+      font-family:"Playfair Display", serif;
+      font-size:24px;
+      margin-bottom:15px;
+      color:var(--title);
+      padding-bottom:8px;
+      border-bottom:2px solid var(--accent2);
+      display:inline-block;
+    }
+
+    /* ======== Детали ======== */
+    .details .line{
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+      padding:12px 0;
+      border-bottom:1px solid var(--border);
+    }
+    .details .line:last-child{border-bottom:none;}
+
+    .details i{
+      color:var(--accent);
+      width:26px;
+      height:26px;
+    }
+
+    .details strong{
+      color:var(--title);
+      font-size:16px;
+    }
+
+    /* ======== Программа ======== */
+    .timeline div{
+      padding:12px 15px;
+      margin-bottom:10px;
+      background:#FAF7F2;
+      border-left:4px solid var(--accent);
+      border-radius:8px;
+    }
+
+    /* ======== Форма ======== */
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:15px;
+    }
+
+    input,select,textarea{
       padding:12px;
-      border-radius:4px;
-      margin:15px 0;
-      font-size:14px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#FBFBFA;
+      font-size:15px;
+      font-family:inherit;
+    }
+
+    button{
+      background:var(--accent);
+      color:white;
+      padding:14px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+      transition:.3s;
+      font-weight:600;
+    }
+    button:hover{
+      background:#c4955e;
+    }
+
+    .success{
+      display:none;
+      background:#78c57a;
+      color:white;
+      text-align:center;
+      padding:12px;
+      border-radius:8px;
+      margin-top:10px;
     }
 
     footer{
       text-align:center;
-      margin-top:30px;
-      color:#777;
-      font-size:12px;
+      margin:35px 0 10px;
+      color:#999;
+      font-size:13px;
     }
 
-    @media (max-width:480px){
-      header h1{ font-size:28px; }
-      .card h2{ font-size:18px; }
-      header{ padding:20px 15px; }
-    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="ornament">❖ ❖ ❖</div>
 
-    <header>
-      <h1>Азиз <span class="accent">&</span> Жасмина</h1>
-      <p style="font-size:16px; opacity:0.95">Приглашаем вас<br>на нашу свадьбу</p>
-    </header>
-<img src="images/wedding-photo2.jpg" alt="Молодожёны" style="width:100%; border-radius:10px; margin:15px 0;">
+<div class="wrapper">
 
-    <div class="ornament">✤ ✤ ✤</div>
+  <div class="ornament" data-anim>✦ ✦ ✦</div>
 
-    <div class="details">
-      <div class="detail-item">
-        <span>📅</span>
-        <div><strong>18 сентября, 2025</strong></div>
-      </div>
-      <div class="detail-item">
-        <span>🕔</span>
-        <div><strong>18:00</strong></div>
-      </div>
-      <div class="detail-item">
-        <span>📍</span>
-        <div><strong>г. Шымкент</strong><br><small>Ресторан "Хасан Ата"</small></div>
-      </div>
-      <div class="detail-item">
-        <span>📞</span>
-        <div><strong>+7 7077366937</strong> (Азиз)<br><strong>+7 7472030888</strong> (Жасмина)</div>
-      </div>
+  <header data-anim>
+    <h1>Азиз <span class="accent">&</span> Жасмина</h1>
+    <p>Мы будем рады видеть вас<br>на нашей свадьбе</p>
+  </header>
+
+  <img src="images/wedding-photo2.jpg" class="photo" data-anim>
+
+  <div class="ornament" data-anim>✤ ✤ ✤</div>
+
+  <!-- ====== Блок деталей ====== -->
+  <div class="card details" data-anim>
+    <div class="line">
+      <i data-feather="calendar"></i>
+      <div><strong>18 сентября, 2025</strong></div>
     </div>
 
-    <img src="images/wedding-photo.jpg" alt="Молодожёны" style="width:100%; border-radius:20px; margin:1px 0;">
-
-    <div class="card">
-      <h2>❖ О нас</h2>
-      <p>Дорогие гости! Мы с радостью приглашаем вас разделить с нами самый важный день в нашей жизни. Ваше присутствие для нас бесценно и будет означать очень много.</p>
+    <div class="line">
+      <i data-feather="clock"></i>
+      <div><strong>18:00</strong></div>
     </div>
 
-    <div class="card">
-      <h2>❖ Программа дня</h2>
-      <div class="timeline">
-        <div class="timeline-item"><strong>17:30</strong> — Приём гостей</div>
-        <div class="timeline-item"><strong>18:00</strong> — Свадебная церемония</div>
-        <div class="timeline-item"><strong>19:00</strong> — Ужин и музыка</div>
-        <div class="timeline-item"><strong>23:00</strong> — Сладкий стол</div>
-      </div>
+    <div class="line">
+      <i data-feather="map-pin"></i>
+      <div><strong>Шымкент</strong><br><small>Ресторан «Хасан Ата»</small></div>
     </div>
 
-    <div class="card">
-      <h2>❖ Подтверждение прихода</h2>
-      <p style="margin-bottom:15px; font-size:14px; color:#666;">Пожалуйста, заполните форму для регистрации.</p>
-      
-      <form id="rsvpForm">
-        <input type="text" id="name" placeholder="Ваше имя" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <select id="attendance" required>
-          <option value="">Выберите ответ</option>
-          <option value="yes">Буду на свадьбе ✓</option>
-          <option value="no">Не смогу приехать ✗</option>
-          <option value="maybe">Ещё не определился ?</option>
-        </select>
-        <input type="text" id="guests" placeholder="Сколько человек?" inputmode="numeric" />
-        <textarea id="note" placeholder="Особые пожелания или аллергия (необязательно)"></textarea>
-        <button type="submit">Отправить</button>
-        <div class="success-message" id="successMsg">✅ Откроется WhatsApp для отправки вашего сообщения.</div>
-      </form>
+    <div class="line">
+      <i data-feather="phone"></i>
+      <div><strong>+7 707 736 6937</strong> (Азиз)<br>
+      <strong>+7 747 203 0888</strong> (Жасмина)</div>
     </div>
-
-    <div class="info-box">
-      <strong>ℹ️ Важно:</strong> Просим сообщить о своём прибытии как можно раньше. Адрес находится в центре города, легко доступен транспортом.
-    </div>
-
-    <div class="ornament">❖ ❖ ❖</div>
-
-    <footer>
-      © 2025 Азиз & Жасмина<br>С нетерпением ждём встречи с вами!
-    </footer>
   </div>
 
-  <script>
-    const form = document.getElementById('rsvpForm');
-    const success = document.getElementById('successMsg');
+  <img src="images/wedding-photo.jpg" class="photo" data-anim>
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
+  <!-- ====== О нас ====== -->
+  <div class="card" data-anim>
+    <h2>О нас</h2>
+    <p>Дорогие гости! Мы с радостью приглашаем вас разделить с нами самый важный день. Ваше присутствие для нас бесценно и будет значить очень много.</p>
+  </div>
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const attendance = document.getElementById('attendance').value;
-      const guests = document.getElementById('guests').value.trim();
-      const note = document.getElementById('note').value.trim();
+  <!-- ====== Программа ====== -->
+  <div class="card" data-anim>
+    <h2>Программа дня</h2>
+    <div class="timeline">
+      <div><strong>17:30</strong> — Приём гостей</div>
+      <div><strong>18:00</strong> — Церемония</div>
+      <div><strong>19:00</strong> — Ужин и музыка</div>
+      <div><strong>23:00</strong> — Сладкий стол</div>
+    </div>
+  </div>
 
-      if(!name || !email || !attendance){
-        alert('Пожалуйста, заполните обязательные поля.');
-        return;
+  <!-- ====== RSVP ====== -->
+  <div class="card" data-anim>
+    <h2>Подтверждение прихода</h2>
+    <p style="color:#666;font-size:14px;">Пожалуйста, заполните форму для регистрации.</p>
+
+    <form id="rsvpForm">
+      <input type="text" id="name" placeholder="Ваше имя" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <select id="attendance" required>
+        <option value="">Выберите ответ</option>
+        <option value="Буду">Буду ✓</option>
+        <option value="Не смогу">Не смогу ✗</option>
+        <option value="Возможно">Возможно ?</option>
+      </select>
+      <input type="text" id="guests" placeholder="Количество гостей">
+      <textarea id="note" placeholder="Комментарий или пожелания"></textarea>
+
+      <button>Отправить</button>
+
+      <div id="success" class="success">✔ WhatsApp открыт</div>
+    </form>
+  </div>
+
+  <div class="ornament" data-anim>✦ ✦ ✦</div>
+
+  <footer data-anim>
+    © 2025 Азиз & Жасмина<br>Мы с нетерпением ждём встречи!
+  </footer>
+</div>
+
+<script>
+  feather.replace();
+
+  // ======= Плавное появление =======
+  const animElems = document.querySelectorAll("[data-anim]");
+  function showAnim(){
+    animElems.forEach(el=>{
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 60){
+        el.classList.add("show");
       }
-
-      // Ваш номер WhatsApp в международном формате без +
-      const phone = "77066399442"; // номер изменён
-      let text = `Приглашение на свадьбу:\nИмя: ${name}\nEmail: ${email}\nОтвет: ${attendance}\n`;
-      if(guests) text += `Гостей: ${guests}\n`;
-      if(note) text += `Пожелания: ${note}`;
-
-      // Формируем ссылку для WhatsApp
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-
-      // Показываем сообщение и открываем WhatsApp в новой вкладке
-      success.style.display = 'block';
-      form.style.display = 'none';
-      window.open(url, '_blank');
     });
-  </script>
+  }
+  showAnim();
+  window.addEventListener("scroll", showAnim);
+
+  // ======= Форма WhatsApp =======
+  const form = document.getElementById("rsvpForm");
+  const success = document.getElementById("success");
+
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const attendance = document.getElementById("attendance").value;
+    const guests = document.getElementById("guests").value;
+    const note = document.getElementById("note").value;
+
+    const phone = "77066399442";
+
+    let text = `Приглашение:\nИмя: ${name}\nEmail: ${email}\nОтвет: ${attendance}`;
+    if(guests) text += `\nГостей: ${guests}`;
+    if(note) text += `\nКомментарий: ${note}`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+    success.style.display = "block";
+    window.open(url, "_blank");
+  });
+</script>
+
 </body>
 </html>
-
-
