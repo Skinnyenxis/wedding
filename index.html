@@ -194,14 +194,13 @@
       font-size:12px;
     }
 
-    /* Адаптив */
     @media (max-width:480px){
       header h1{ font-size:28px; }
       .card h2{ font-size:18px; }
       header{ padding:20px 15px; }
     }
 
-    /* ===== Музыкальный плеер ===== */
+    /* Плеер */
     .audio-player {
       display: flex;
       flex-direction: column;
@@ -285,7 +284,6 @@
 
     <div class="ornament">✤ ✤ ✤</div>
 
-    <!-- Детали свадьбы -->
     <div class="details">
       <div class="detail-item">
         <span>📅</span>
@@ -300,8 +298,8 @@
         <div>
           <strong>г. Шымкент</strong><br>
           <small>Ресторан "Хасан Ата"</small><br>
-          <a href="https://yandex.kz/maps/ru/org/hasan_ata/90536053727/" target="_blank">Перейти в Яндекс.Карты</a><br>
-          <a href="https://2gis.kz/shymkent/geo/70000001025876260/69.571103,42.320346/" target="_blank">Перейти в 2ГИС</a>
+          <a href="https://yandex.kz/maps/ru/org/hasan_ata/90536053727/" target="_blank">Яндекс.Карты</a><br>
+          <a href="https://2gis.kz/shymkent/geo/70000001025876260/69.571103,42.320346/" target="_blank">2ГИС</a>
         </div>
       </div>
       <div class="detail-item">
@@ -315,14 +313,14 @@
 
     <img src="images/wedding-photo.jpg" alt="Молодожёны" style="width:100%; border-radius:20px; margin:1px 0;">
 
-    <!-- Музыкальный плеер -->
+    <!-- Плеер -->
     <div class="audio-player" data-anim>
       <button class="play-btn" id="playBtn">▶️</button>
-      <div class="track-info">Bozhalar Toylar Muborak</div>
+      <div class="track-info">Wedding Piano — Paul Yudin</div>
       <div class="progress-container" id="progressContainer">
         <div class="progress" id="progress"></div>
       </div>
-      <audio id="audio" src="https://sefon.pro/mp3/1473708-bozhalar-toylar-muborak/"></audio>
+      <audio id="audio" src="https://cdn.pixabay.com/audio/2023/08/17/audio_9490cf5d3d.mp3"></audio> <!-- Музыка из Pixabay :contentReference[oaicite:1]{index=1} -->
     </div>
 
     <div class="card">
@@ -343,7 +341,7 @@
     <div class="card">
       <h2>❖ Подтверждение прихода</h2>
       <p style="margin-bottom:15px; font-size:14px; color:#666;">Пожалуйста, заполните форму для регистрации.</p>
-      
+
       <form id="rsvpForm">
         <input type="text" id="name" placeholder="Ваше имя" required />
         <input type="email" id="email" placeholder="Email" required />
@@ -372,36 +370,20 @@
   </div>
 
   <script>
-    // ===== RSVP форма =====
-    const form = document.getElementById('rsvpForm');
-    const success = document.getElementById('successMsg');
+    // Анимация появления
+    const animElems = document.querySelectorAll("[data-anim]");
+    function showAnim(){
+      animElems.forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60){
+          el.classList.add("show");
+        }
+      });
+    }
+    window.addEventListener("scroll", showAnim);
+    showAnim();
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const attendance = document.getElementById('attendance').value;
-      const guests = document.getElementById('guests').value.trim();
-      const note = document.getElementById('note').value.trim();
-
-      if(!name || !email || !attendance){
-        alert('Пожалуйста, заполните обязательные поля.');
-        return;
-      }
-
-      const phone = "77066399442"; // номер изменён
-      let text = `Приглашение на свадьбу:\nИмя: ${name}\nEmail: ${email}\nОтвет: ${attendance}\n`;
-      if(guests) text += `Гостей: ${guests}\n`;
-      if(note) text += `Пожелания: ${note}`;
-
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-      success.style.display = 'block';
-      form.style.display = 'none';
-      window.open(url, '_blank');
-    });
-
-    // ===== Музыкальный плеер =====
+    // Плеер
     const audio = document.getElementById("audio");
     const playBtn = document.getElementById("playBtn");
     const progress = document.getElementById("progress");
@@ -435,6 +417,29 @@
       const clickX = e.offsetX;
       const duration = audio.duration;
       audio.currentTime = (clickX / width) * duration;
+    });
+
+    // Форма RSVP
+    const form = document.getElementById('rsvpForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const attendance = document.getElementById('attendance').value;
+      const guests = document.getElementById('guests').value.trim();
+      const note = document.getElementById('note').value.trim();
+      if(!name || !email || !attendance){
+        alert('Пожалуйста, заполните обязательные поля.');
+        return;
+      }
+      const phone = "77066399442";
+      let text = `Приглашение на свадьбу:\nИмя: ${name}\nEmail: ${email}\nОтвет: ${attendance}\n`;
+      if(guests) text += `Гостей: ${guests}\n`;
+      if(note) text += `Пожелания: ${note}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      document.getElementById('successMsg').style.display = 'block';
+      form.style.display = 'none';
+      window.open(url, '_blank');
     });
   </script>
 </body>
