@@ -21,19 +21,25 @@ body {
    ✏️ Замените "couple.jpg" на ваш файл.
    Положите его рядом с wedding_invitation.html
    ══════════════════════════════════ */
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: auto;
-height: auto;
-max-width: 400px;
-max-height: 70vh;
-opacity: 0.20;
+/* ══════════════════════════════════
+   ФОН — ФОТО НА ВЕСЬ ЭКРАН (еле видно)
+   ✏️ Замените "couple.jpg" на ваш файл.
+   Положите его рядом с wedding_invitation.html
+   ══════════════════════════════════ */
+.bg-photo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 400px;
+  max-height: 70vh;
+  opacity: 0.20;
   pointer-events: none;
   z-index: -1;
 }
-
+  
 .bg-fade {
   position: fixed;
   inset: 0;
